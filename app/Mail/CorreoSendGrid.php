@@ -15,7 +15,8 @@ class CorreoSendGrid extends Mailable
 
     public function build()
     {
-        return $this->view('eail.sendgrid')
+        // return $this->view('email.sendgrid')
+         return $this->markdown('email.sendgrid')
                     ->subject('Correo enviado con SendGrid')
                     ->from('eugegarciaruiz2@gmail.com', 'SG');
     }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EnviarCorreoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('enviarcorreo');
 });
+
+Route::get('/enviarcorreo', function () {
+    return view('enviarcorreo');
+});
+
+Route::controller(EnviarCorreoController::class)->group(function () {
+    Route::get('sendGrid', 'sendGrid')->name('sendGrid.sendGrid');
+   
+});
+//Route::post('/enviar-correo', EnviarCorreoController::class)->name('enviar-correo');
+
+// Route::controller(EnviarCorreoController::class)->group(function () {
+//     Route::get('sendGrid', 'sendGrid')->name('sendGrid.sendGrid');
+// });
+
